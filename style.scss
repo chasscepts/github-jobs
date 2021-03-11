@@ -360,26 +360,6 @@ b {
     border-radius: 5px;
   }
 
-  .type {
-    span {
-      position: relative;
-      display: inline-block;
-      margin: 0 15px;
-      padding: 0 15px;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: calc(50% - 3px);
-        left: 0;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: $color-muted;
-      }
-    }
-  }
-
   .location {
     font-weight: bold;
     font-size: 0.95rem;
@@ -387,11 +367,104 @@ b {
 }
 
 .more-jobs-wrap {
-  padding: 20px 0 60px;
+  padding: 20px 0;
 
   .btn {
     padding: 20px 30px;
     font-size: 22px;
+  }
+}
+
+.job-details {
+  padding-top: 40px;
+
+  ul, ol {
+    padding-left: 15px;
+  }
+  .logo {
+    margin-right: 20px;
+  }
+
+  .company {
+    font-weight: bold;
+  }
+
+  .site-link {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-right: 30px;
+    padding: 10px 15px;
+  }
+
+  .white-sections {
+    margin: 20px 0;
+  }
+
+  .details-intro-header {
+    margin-bottom: 30px;
+  }
+
+  .reduced {
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .apply-btn {
+    padding: 10px 15px;
+  }
+
+  .how-to-apply {
+    background-image: url(assets/images/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+  }
+
+  .mb-15 {
+    margin-bottom: 15px;
+  }
+  
+  .mb-30 {
+    margin-bottom: 30px;
+  }
+}
+
+.type {
+  span {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    padding: 0 15px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 3px);
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $color-muted;
+    }
+  }
+}
+
+.h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.h4 {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.details-footer {
+  margin-bottom: 15px;
+  padding: 15px 0;
+
+  .btn {
+    padding: 10px 15px;
   }
 }
 

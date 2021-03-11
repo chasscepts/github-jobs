@@ -995,14 +995,83 @@ b {
   border-radius: 5px;
 }
 
-.job-list-card .type span {
+.job-list-card .location {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.more-jobs-wrap {
+  padding: 20px 0;
+}
+
+.more-jobs-wrap .btn {
+  padding: 20px 30px;
+  font-size: 22px;
+}
+
+.job-details {
+  padding-top: 40px;
+}
+
+.job-details ul, .job-details ol {
+  padding-left: 15px;
+}
+
+.job-details .logo {
+  margin-right: 20px;
+}
+
+.job-details .company {
+  font-weight: bold;
+}
+
+.job-details .site-link {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-right: 30px;
+  padding: 10px 15px;
+}
+
+.job-details .white-sections {
+  margin: 20px 0;
+}
+
+.job-details .details-intro-header {
+  margin-bottom: 30px;
+}
+
+.job-details .reduced {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.job-details .apply-btn {
+  padding: 10px 15px;
+}
+
+.job-details .how-to-apply {
+  background-image: url(assets/images/banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+}
+
+.job-details .mb-15 {
+  margin-bottom: 15px;
+}
+
+.job-details .mb-30 {
+  margin-bottom: 30px;
+}
+
+.type span {
   position: relative;
   display: inline-block;
   margin: 0 15px;
   padding: 0 15px;
 }
 
-.job-list-card .type span::before {
+.type span::before {
   content: '';
   position: absolute;
   top: calc(50% - 3px);
@@ -1013,18 +1082,23 @@ b {
   background-color: #9da5af;
 }
 
-.job-list-card .location {
+.h3 {
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1.3rem;
 }
 
-.more-jobs-wrap {
-  padding: 20px 0 60px;
+.h4 {
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.more-jobs-wrap .btn {
-  padding: 20px 30px;
-  font-size: 22px;
+.details-footer {
+  margin-bottom: 15px;
+  padding: 15px 0;
+}
+
+.details-footer .btn {
+  padding: 10px 15px;
 }
 
 .themed .card {
