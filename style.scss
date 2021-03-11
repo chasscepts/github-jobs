@@ -1,0 +1,408 @@
+@import 'switch';
+
+$color-darker: #131722;
+$color-dark: #18202d;
+$color-primary: #5964e0;
+$color-secondary: #f5f6f8;
+$color-light: #6670e3;
+$color-white: #fff;
+$color-black: #000;
+$color-muted: #9da5af;
+
+$colors: (
+  'dark': $color-dark,
+  'primary': $color-primary,
+  'secondary': $color-secondary,
+  'white': $color-white,
+  'black': $color-black,
+  'muted': $color-muted,
+  'light': $color-light
+);
+
+$positions: relative, absolute, sticky, fixed;
+
+$displays: none, block, inline, inline-block, flex, grid;
+
+$flex-directions: row, column, row-reverse, column-reverse;
+
+$wraps: wrap, nowrap;
+
+$orders: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+$named-props: (
+  'justify-content': (
+    'start': flex-start,
+    'end': flex-end,
+    'between': space-between,
+    'around': space-around,
+    'evenly': space-evenly,
+    'center': center,
+    'stretch': stretch
+  ),
+  'align-items': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'stretch': stretch
+  )
+);
+
+$break-points: (
+  xs: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1024px
+);
+
+@mixin media-break($break-point: md) {
+  $width: map-get($break-points, $break-point);
+  $break: if($width, $width, 768px);
+
+  @media (min-width: $break) {
+    @content;
+  }
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;;
+  color: $color-muted;
+  background-color: $color-secondary;
+  font-weight: lighter;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@each $key, $color in $colors {
+  .text-#{$key},
+  .hover-#{$key}:hover {
+    color: $color;
+  }
+
+  .bg-#{$key} {
+    background-color: $color;
+  }
+
+  .border-#{$key} {
+    border-color: $color;
+  }
+
+  .hover-#{$key}:hover {
+    color: $color;
+  }
+}
+
+@each $position in $positions {
+  .position-#{$position} {
+    position: $position;
+  }
+}
+
+@each $display in $displays {
+  .d-#{$display} {
+    display: $display;
+  }
+
+  @each $break, $width in $break-points {
+    @include media-break($break) {
+      .d-#{$break}-#{$display} {
+        display: $display;
+      }
+    }
+  }
+}
+
+@each $prop, $vals in $named-props {
+  @each $key, $val in $vals {
+    .#{$prop}-#{$key} {
+      #{$prop}: $val;
+    }
+  }
+}
+
+@each $direction in $flex-directions {
+  .flex-#{$direction} {
+    flex-direction: $direction;
+  }
+
+  @each $break, $width in $break-points {
+    @include media-break($break) {
+      .flex-#{$break}-#{$direction} {
+        flex-direction: $direction;
+      }
+    }
+  }
+}
+
+@each $wrap in $wraps {
+  .flex-#{$wrap} {
+    flex-wrap: $wrap;
+  }
+
+  @each $break, $width in $break-points {
+    @include media-break($break) {
+      .flex-#{$break}-#{$wrap} {
+        flex-wrap: $wrap;
+      }
+    }
+  }
+}
+
+@each $order in $orders {
+  .order-#{$order} {
+    order: $order;
+  }
+}
+
+main {
+  position: relative;
+  top: -50px;
+}
+
+input {
+  outline: none;
+  border: none;
+  font-size: 18px;
+}
+
+b {
+  font-weight: bold;
+}
+
+.d-none {
+  &.d-xs-block {
+    @include media-break(xs) {
+      display: block;
+    }
+  }
+  &.d-md-block {
+    @include media-break(md) {
+      display: block;
+    }
+  }
+}
+
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.border-left {
+  border-left-width: 1px;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.fade {
+  opacity: 0.6;
+}
+
+.dim {
+  background-color: rgba(0, 0, 0, 0.26);
+}
+
+.clip {
+  position: absolute;
+  clip-path: circle(1px);
+  color: transparent;
+}
+
+.details-screen {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  max-width: 576px;
+}
+
+.screen {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+
+  @include media-break(sm) {
+    width: 576px;
+  }
+
+  @include media-break(md) {
+    padding: 0;
+    width: 720px;
+  }
+
+  @include media-break(lg) {
+    width: 960px;
+  }
+
+  @include media-break(xl) {
+    width: 1140px;
+  }
+}
+
+.page-header {
+  padding: 50px 0 80px;
+  background-image: url(assets/images/banner.png);
+  background-size: cover;
+  background-color: $color-light;
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  .sun {
+    margin-right: 15px;
+  }
+
+  .moon {
+    transform: rotate(-45deg);
+    margin-left: 15px;
+  }
+}
+
+.search-btn {
+  padding: 15px;
+  margin-left: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+
+  .search-field {
+    margin-right: 50px;
+
+    @include media-break(md) {
+      margin-right: 0;
+    }
+  }
+
+  @include media-break(md) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+  }
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 30px;
+  
+  .clickable {
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+  }
+}
+
+.job-list-header {
+  margin-bottom: 30px;
+}
+
+.job-list-card {
+  padding-top: 30px;
+  margin: 30px 0;
+  position: relative;
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .inner {
+    padding-top: 30px;
+    
+    & > * {
+      padding: 5px 0;
+    }
+  }
+
+  .company-logo {
+    position: absolute;
+    left: 30px;
+    top: 0px;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+  }
+
+  .type {
+    span {
+      position: relative;
+      display: inline-block;
+      margin: 0 15px;
+      padding: 0 15px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 3px);
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color-muted;
+      }
+    }
+  }
+
+  .location {
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+}
+
+.more-jobs-wrap {
+  padding: 20px 0 60px;
+
+  .btn {
+    padding: 20px 30px;
+    font-size: 22px;
+  }
+}
+
+.themed {
+  .card {
+    background-color: $color-white;
+  }
+
+  &.dark {
+    .card {
+      background-color: $color-dark;
+    }
+  }
+}

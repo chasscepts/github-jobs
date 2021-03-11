@@ -7,211 +7,239 @@
   <title>GitHub Jobs</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-  <header>
-    <div>
-      <h1>devjobs</h1>
-      <div>
-        <span></span>
-        <input class="switch" type="checkbox" name="brightness-check">
-        <span></span>
+<body class="themed">
+  <header class="page-header">
+    <div class="screen d-flex justify-content-between align-items-center">
+      <h1 class="text-white">devjobs</h1>
+      <div class="d-flex align-items-center">
+        <img class="sun" alt="sun" src="assets/images/sun.svg">
+        <label class="switch">
+          <input type="checkbox" name="brightness-check">
+          <span class="slider round"></span>
+        </label>
+        <img class="moon" alt="moon" src="assets/images/moon.svg">
       </div>
     </div>
   </header>
   <main>
-    <section class="job-list">
-      <header>
+    <section class="job-list screen">
+      <header class="card job-list-header">
         <h2 class="clip">Job Lists</h2>
-        <form>
-          <input type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
-          <input type="text" name="search_location" id="search-location" placeholder="Filter by location...">
-          <div>
-            <label>
+        <form class="search-form">
+          <input class="flex-1 search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
+          <input class="d-none d-md-block" type="text" name="search_location" id="search-location" placeholder="Filter by location...">
+          <div class="d-flex justify-content-end align-items-center">
+            <label class="d-none d-md-block">
               <input type="checkbox" name="search_fulltime" id="search-fulltime">
               <span>Full Time Only</span>
             </label>
-            <button type="submit" name="search">Search</button>
+            <img class="d-md-none" alt="filter" src="assets/images/funnel.png">
+            <button class="btn bg-primary text-white search-btn" type="submit" name="search">
+              <span class="d-none d-md-block">Search</span>
+              <img class="d-md-none" alt="search" src="assets/images/search.svg">
+            </button>
           </div>
         </form>
       </header>
-      <div>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+      <div class="articles-wrap">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
-        <article>
-          <img class="company-logo" src="" alt="logo">
+        <article class="job-list-card position-relative">
+          <img class="company-logo" src="assets/images/sample.png" alt="logo">
           <div class="card">
-            <h3>Senior Software Engineer</h3>
-            <p>
-              <span>5h ago</span>
-              <span>Full Time</span>
-            </p>
-            <p>So Digital Inc.</p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            <div class="d-flex flex-column inner">
+              <h3 class="text-black order-2">Senior Software Engineer</h3>
+              <p class="type order-1">
+                <time datetime="2021-03-11">5h ago</time>
+                <span>Full Time</span>
+              </p>
+              <p class="order-3">So Digital Inc.</p>
+              <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+            </div>
           </div>
         </article>
       </div>
-      <div>
-        <button type="button" id="more-jobs">Load More</button>
+      <div class="more-jobs-wrap d-flex justify-content-center">
+        <button class="btn text-white bg-primary" type="button" id="more-jobs">Load More</button>
       </div>
     </section>
     <section class="job-details">
-      <header>
-        <h2 class="clip">Job Details</h2>
-        <div>
-          <img src="" alt="company-logo">
-          <div>
-            <p>So Digital Inc.</p>
-            <p>sodigital.co</p>
-            <a href="#">Company Site</a>
-          </div>
-        </div>
-      </header>
-      <section>
+      <div class="details-screen">
         <header>
-          <h3 class="clip">Introduction</h3>
-          <div>
-            <p>Senior Software Engineer</p>
-            <p>
-              <span>1w ago</span>
-              <span>Part Time</span>
-            </p>
-            <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+          <h2 class="clip">Job Details</h2>
+          <div class="d-flex justify-content-between align-items-center">
+            <img src="assets/images/sample.png" alt="company-logo">
+            <div>
+              <p>So Digital Inc.</p>
+              <p>sodigital.co</p>
+            </div>
+            <a class="btn text-primary bg-secondary" href="#">Company Site</a>
           </div>
-          <button type="button">Apply Now</button>
         </header>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.
-        </p>
-        <p>
-          Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus. In adipiscing ultrices tellus, in suscipit massa vehicula eu.
-        </p>
-        <a href="#">See more about our teams here</a>
-      </section>
-      <section>
-        <h3>Requirements</h3>
-        <p>
-          Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. 
-        </p>
-        <ul>
-          <li>Mobi interdum mobilis sapien. Sed</li>
-          <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
-          <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
-          <li>Morbi interdum mollis sapien. Sed</li>
-        </ul>
-      </section>
-      <section>
-        <h3>What You Will Do</h3>
-        <p>
-          Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus.
-        </p>
-        <p>
-          Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus.
-        </p>
-        <ol>
-          <li>Mobi interdum mobilis sapien. Sed</li>
-          <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
-          <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
-          <li>Morbi interdum mollis sapien. Sed</li>
-        </ol>
-      </section>
-      <section>
-        <h3>How to Apply</h3>
-        <p>
-
-        </p>
-        <a href="#">https://examplelink.com/how-to-apply</a>
-      </section>
+        <div class="card bg-white">
+          <section>
+            <header>
+              <h3 class="clip">Introduction</h3>
+              <div>
+                <p>Senior Software Engineer</p>
+                <p>
+                  <span>1w ago</span>
+                  <span>Part Time</span>
+                </p>
+                <p>Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+              </div>
+              <button type="button">Apply Now</button>
+            </header>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.
+            </p>
+            <p>
+              Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus. In adipiscing ultrices tellus, in suscipit massa vehicula eu.
+            </p>
+            <a href="#">See more about our teams here</a>
+          </section>
+          <section>
+            <h3>Requirements</h3>
+            <p>
+              Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. 
+            </p>
+            <ul>
+              <li>Mobi interdum mobilis sapien. Sed</li>
+              <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
+              <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
+              <li>Morbi interdum mollis sapien. Sed</li>
+            </ul>
+          </section>
+          <section>
+            <h3>What You Will Do</h3>
+            <p>
+              Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus.
+            </p>
+            <p>
+              Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus.
+            </p>
+            <ol>
+              <li>Mobi interdum mobilis sapien. Sed</li>
+              <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
+              <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
+              <li>Morbi interdum mollis sapien. Sed</li>
+            </ol>
+          </section>
+        </div>
+        <section class="card text-white bg-primary">
+          <h3>How to Apply</h3>
+          <p>
+  
+          </p>
+          <a href="#">https://examplelink.com/how-to-apply</a>
+        </section>
+      </div>
     </section>
-    <footer>
-      <div>
+    <footer class="bg-white">
+      <div class="d-flex justify-content-between align-items-center details-screen">
         <div>
-          <p>Senior Software Engineer</p>
+          <p class="text-black">Senior Software Engineer</p>
           <p>So Digital Inc.</p>
         </div>
-        <button type="button">Apply Now</button>
+        <button class="btn text-white bg-primary" type="button">Apply Now</button>
       </div>
     </footer>
   </main>
