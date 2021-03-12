@@ -9,6 +9,7 @@ $color-light: #6670e3;
 $color-white: #fff;
 $color-black: #000;
 $color-muted: #9da5af;
+$color-transparent: #0000;
 
 $colors: (
   'dark': $color-dark,
@@ -17,7 +18,8 @@ $colors: (
   'white': $color-white,
   'black': $color-black,
   'muted': $color-muted,
-  'light': $color-light
+  'light': $color-light,
+  'transparent': $color-transparent
 );
 
 $positions: relative, absolute, sticky, fixed;
@@ -71,6 +73,10 @@ body {
   color: $color-muted;
   background-color: $color-secondary;
   font-weight: lighter;
+
+  &.dark {
+    background-color: $color-darker;
+  }
 }
 
 *,
@@ -153,6 +159,10 @@ body {
 main {
   position: relative;
   top: -50px;
+
+  @include media-break(md) {
+    top: -30px;
+  }
 }
 
 input {
@@ -173,6 +183,10 @@ b {
   &.details {
     .details-page {
       display: block;
+    }
+
+    .job-list {
+      display: none;
     }
   }
 }
@@ -247,7 +261,13 @@ b {
   padding-left: 30px;
   padding-right: 30px;
   width: 100%;
-  max-width: 576px;
+  max-width: 720px;
+
+  & > header {
+    display: flex;
+    align-items: center;
+    min-height: 130px;
+  }
 }
 
 .screen {
@@ -268,10 +288,6 @@ b {
 
   @include media-break(lg) {
     width: 960px;
-  }
-
-  @include media-break(xl) {
-    width: 1140px;
   }
 }
 
@@ -305,13 +321,17 @@ b {
   justify-content: space-between;
   border-radius: 5px;
 
+  input[type="text"],
+  input[type="search"] {
+    background-color: transparent;
+  }
+
   input[placeholder] {
     text-overflow: ellipsis;
   }
 
   & > * {
     padding: 30px 15px;
-    background-color: $color-white;
     display: flex;
     align-items: center;
 
@@ -367,6 +387,11 @@ b {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+
+    & > * {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
 }
 
@@ -476,13 +501,15 @@ b {
 }
 
 .job-details {
-  padding-top: 40px;
 
   ul, ol {
     padding-left: 15px;
+    margin-bottom: 15px;
   }
+
   .logo {
     margin-right: 20px;
+    width: 100px;
   }
 
   .company {
@@ -511,6 +538,7 @@ b {
 
   .apply-btn {
     padding: 10px 15px;
+    white-space: nowrap;
   }
 
   .how-to-apply {
@@ -518,6 +546,28 @@ b {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px;
+
+    a {
+      color: $color-white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      display: block;
+      margin: 7px 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .details-body {
+    p, h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 15px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: $color-black;
+    }
   }
 
   .mb-15 {
@@ -560,11 +610,27 @@ b {
 }
 
 .details-footer {
-  margin-bottom: 15px;
+  margin-bottom: 70px;
   padding: 15px 0;
 
   .btn {
     padding: 10px 15px;
+  }
+
+  .back-btn {
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: #c11a37;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 }
 
@@ -577,6 +643,28 @@ b {
     }
   }
 
+  .theme-bg-light {
+    background-color: $color-white;
+  }
+
+  .theme-bg-dark {
+    background-color: $color-secondary;
+  }
+
+  .theme-text-light {
+    color: $color-white;
+  }
+
+  .theme-text-dark {
+    color: $color-black;
+  }
+
+  .job-details {
+    h1, h2, h3, h4, h5, h6 {
+      color: $color-white;
+    }
+  }
+
   &.dark {
     .card {
       background-color: $color-dark;
@@ -584,6 +672,22 @@ b {
       &.secondary {
         background-color: $color-darker;
       }
+    }
+
+    .theme-bg-light {
+      background-color: $color-dark;
+    }
+
+    .theme-bg-dark {
+      background-color: $color-darker;
+    }
+
+    .theme-text-light {
+      color: $color-black;
+    }
+
+    .theme-text-dark {
+      color: $color-white;
     }
   }
 }

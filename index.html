@@ -8,17 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="jobs.js"></script>
   <script src="index.js"></script>
 </head>
 <body class="themed pages">
   <header class="page-header">
-    <div class="screen d-flex justify-content-between align-items-center">
+    <div class="screen d-flex justify-content-between align-items-center position-relative">
       <h1 class="text-white">devjobs</h1>
       <div class="d-flex align-items-center">
         <img class="sun" alt="sun" src="assets/images/sun.svg">
         <label class="switch">
-          <input type="checkbox" name="brightness-check">
+          <input type="checkbox" name="theme-check" id="theme-check">
           <span class="slider round"></span>
         </label>
         <img class="moon" alt="moon" src="assets/images/moon.svg">
@@ -29,21 +28,21 @@
     <section class="job-list screen">
       <header class="job-list-header">
         <h2 class="clip">Job Lists</h2>
-        <form class="search-form bg-secondary" action="#" method="post" enctype="application/x-www-form-urlencoded" id="search-form">
-          <div class="flex-1">
+        <form class="search-form theme-bg-dark" action="#" method="post" enctype="application/x-www-form-urlencoded" id="search-form">
+          <div class="flex-1 theme-bg-light">
             <label class="has-icon search-field-label">
-              <input class="w-100 search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
+              <input class="w-100 theme-text-dark search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
             </label>
           </div>
-          <div class="d-none d-md-flex">
+          <div class="d-none d-md-flex theme-bg-light">
             <label class="has-icon search-location-label">
-              <input class="w-100" type="text" name="search_location" id="search-location" placeholder="Filter by location">
+              <input class="w-100 theme-text-dark" type="text" name="search_location" id="search-location" placeholder="Filter by location">
             </label>
           </div>
-          <div class="d-flex justify-content-end align-items-center">
+          <div class="d-flex justify-content-end align-items-center theme-bg-light">
             <label class="d-none d-md-block">
               <input type="checkbox" name="search_fulltime" id="search-fulltime">
-              <span class="type-label-text">Full Time Only</span>
+              <span class="type-label-text theme-text-dark">Full Time Only</span>
             </label>
             <img class="d-md-none" alt="filter" src="assets/images/funnel.png">
             <button class="btn bg-primary text-white search-btn" type="submit" name="search">
@@ -65,91 +64,62 @@
     </section>
     <section class="job-details details-page">
       <div class="details-screen">
-        <header class="bg-white">
+        <header class="theme-bg-light">
           <h2 class="clip">Job Details</h2>
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-between align-items-center w-100">
             <div class="d-flex align-items-center">
-              <img class="logo" src="assets/images/sample.png" alt="company-logo">
+              <img class="logo" id="details-header-logo" src="assets/images/sample.png" alt="company-logo">
               <div>
-                <p class="text-black company">So Digital Inc.</p>
-                <p>sodigital.co</p>
+                <p class="theme-text-dark company" id="details-header-company">So Digital Inc.</p>
+                <p id="details-header-url">sodigital.co</p>
               </div>
             </div>
-            <a class="btn text-primary bg-secondary site-link" href="#">Company Site</a>
+            <a class="btn text-primary bg-secondary site-link" id="details-header-site" href="#">Company Site</a>
           </div>
         </header>
-        <div class="card bg-white white-sections">
+        <div class="card theme-bg-light white-sections">
           <section class="mb-30">
             <header class="details-intro-header">
               <h3 class="clip">Introduction</h3>
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <p class="type">
-                    <time>1w ago</time>
-                    <span>Part Time</span>
+                    <time id="details-elapsed">1w ago</time>
+                    <span id="details-type">Part Time</span>
                   </p>
                   <div>
-                    <p class="h3 text-black">Senior Software Engineer</p>
-                    <p class="text-primary reduced">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
+                    <p class="h3 theme-text-dark" id="details-title">Senior Software Engineer</p>
+                    <p class="text-primary reduced" id="details-location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
                   </div>
                 </div>
-                <button class="btn text-white bg-primary apply-btn" type="button">Apply Now</button>
+                <a href="#details-how-to-apply" class="btn text-white bg-primary apply-btn" type="button">Apply Now</a>
               </div>
             </header>
-            <p class="mb-15">
+            <div class="mb-15 details-body" id="details-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.
-            </p>
-            <p class="mb-15">
-              Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus. In adipiscing ultrices tellus, in suscipit massa vehicula eu.
-            </p>
-            <a class="d-block mb-15 reduced text-primary" href="#">See more about our teams here</a>
-          </section>
-          <section class="mb-30">
-            <h3 class="h4 text-black mb-15">Requirements</h3>
-            <p class="mb-15">
-              Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. 
-            </p>
-            <ul class="mb-30">
-              <li>Mobi interdum mobilis sapien. Sed</li>
-              <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
-              <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
-              <li>Morbi interdum mollis sapien. Sed</li>
-            </ul>
-          </section>
-          <section class="mb-30">
-            <h3 class="mb-15 h4 text-black">What You Will Do</h3>
-            <p class="mb-15">
-              Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus. Duis sit amet sodales felis. Duis nunc eros, mattis at dui ac, convallis semper risus.
-            </p>
-            <p class="mb-15">
-              Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. Sed sed lacinia lectus.
-            </p>
-            <ol>
-              <li>Mobi interdum mobilis sapien. Sed</li>
-              <li>Phasellus lacinia magna ullamcorper lacreet. lectus arcu pulvinar risus</li>
-              <li>Mauris nibh felis, adipiscing varius, adipscing in, lacinia vel, tellus. Suspendissa acurna Etiam pellentesque mauris ut lectus.</li>
-              <li>Morbi interdum mollis sapien. Sed</li>
-            </ol>
+            </div>
           </section>
         </div>
         <section class="text-white bg-primary how-to-apply">
           <h3 class="h3 mb-15">How to Apply</h3>
-          <p class="mb-15">
+          <p class="mb-15 details-how-to-apply" id="details-how-to-apply">
             Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.
           </p>
-          <a class="text-white reduced" href="#">https://examplelink.com/how-to-apply</a>
         </section>
       </div>
     </section>
   </main>
-  <footer class="bg-white details-page details-footer">
+  <footer class="theme-bg-light details-page details-footer">
     <div class="d-flex justify-content-between align-items-center details-screen">
       <div>
-        <p class="text-black h4">Senior Software Engineer</p>
-        <p>So Digital Inc.</p>
+        <p class="theme-text-dark h4" id="footer-title">Senior Software Engineer</p>
+        <p id="footer-company">So Digital Inc.</p>
       </div>
       <button class="btn text-white bg-primary" type="button">Apply Now</button>
     </div>
+    <button class="position-fixed btn back-btn text-white" id="back-btn">
+      <span>&#8592;</span>
+    </button>
   </footer>
 </body>
 </html>

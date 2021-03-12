@@ -1,11 +1,17 @@
 (function iife() {
   function main() {
     setupLoading();
+    setupthemes();
+  }
+
+  function setupthemes() {
+    const btn = document.querySelector('#theme-check');
+    btn.addEventListener('change', () => {
+      document.body.classList.toggle('dark');
+    });
   }
 
   function setupLoading() {
-    //https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
-
     let store = [], pointer = 0, page = 0;
     const baseUrl = 'https://arcane-temple-01740.herokuapp.com/https://jobs.github.com/positions.json';
     const UNIT = 12;
@@ -22,7 +28,7 @@
       }
 
       loadingWrap.classList.add('loading');
-      fetchNextPag()
+      fetchNextPage()
         .then(res => {
           addArticlesToDom();
           loadingWrap.classList.remove('loading');
@@ -43,7 +49,6 @@
     const fetchNextPage = () => {
       return new Promise((resolve, reject) => {
         const url = baseUrl + queryParams();
-        //const url = 'https://github-jobs-proxy.appspot.com/positions?description=javascript&location=san+francisco';
         const xhr = new XMLHttpRequest();
         xhr.open('get', url);
         xhr.onload = () => {
@@ -67,15 +72,6 @@
       });
     }
 
-    const fetchNextPag = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          store = [...store, ...testJobs];
-          resolve();
-        }, 2000);
-      });
-    }
-
     const queryParams = () => {
       const arr = [];
       if(page) {
@@ -92,6 +88,7 @@
     }
 
     load();
+
     searchForm.addEventListener('submit', evt => {
       evt.preventDefault();
       description = searchForm.search_company.value;
@@ -103,25 +100,15 @@
       load();
       return false;
     });
+
+    document.querySelector('#more-jobs').addEventListener('click', load);
+
+    document.querySelector('#back-btn').addEventListener('click', () => {
+      document.body.classList.remove('details');
+    });
   }
 
   function createJobListArticles(job) {
-    /*<article class="job-list-card position-relative">
-      <img class="company-logo" src="assets/images/sample.png" alt="logo">
-      <div class="card clickable">
-        <div class="d-flex flex-column inner">
-          <h3 class="text-black order-2">Senior Software Engineer</h3>
-          <p class="type order-1">
-            <time datetime="2021-03-11">5h ago</time>
-            <span>Full Time</span>
-          </p>
-          <p class="order-3">So Digital Inc.</p>
-          <p class="text-light order-4 location">Remote, Seoul, Tokyo, Mountain View, San Francisco</p>
-        </div>
-      </div>
-    </article>
-    */
-
     const article = document.createElement('article');
     article.className = 'job-list-card position-relative';
 
@@ -140,7 +127,7 @@
     card.append(inner);
 
     const h3 = document.createElement('h3');
-    h3.className = 'text-black order-2';
+    h3.className = 'theme-text-dark order-2';
     h3.innerHTML = job.title;
     inner.append(h3);
 
@@ -151,8 +138,10 @@
     const createdAt = job.created_at;
     const time = document.createElement('time');
     time.dateTime = createdAt;
-    const elapsedTime = getElapsedTime(createdAt);
-    time.innerHTML = elapsedTime;
+    if(!job.age) {
+      job.age = getElapsedTime(createdAt);
+    }
+    time.innerHTML = job.age;
     type.append(time);
 
     const span = document.createElement('span');
@@ -170,14 +159,32 @@
     inner.append(location);
 
     card.addEventListener('click', (evt) => {
-      showDetails(job, elapsedTime, evt);
+      showDetails(job, evt);
     });
 
     return article;
   }
 
-  function showDetails(job, elapsedTime, evt) {
+  function showDetails(job, evt) {
+    document.querySelector('#footer-title').innerHTML = job.title;
+    document.querySelector('#footer-company').innerHTML = job.company;
+    document.querySelector('#details-header-company').innerHTML = job.company;
+    document.querySelector('#details-header-logo').src = job.company_logo;
+    document.querySelector('#details-header-site').href = job.company_url;
+    document.querySelector('#details-how-to-apply').innerHTML = job.how_to_apply;
+    document.querySelector('#details-elapsed').innerHTML = job.age;
+    document.querySelector('#details-type').innerHTML = job.type;
+    document.querySelector('#details-title').innerHTML = job.title;
+    document.querySelector('#details-location').innerHTML = job.location;
+    document.querySelector('#details-body').innerHTML = job.description;
 
+    if(!(job.hostname)) {
+      const url = new URL(job.company_url);
+      job.hostname = url.hostname;
+    }
+    document.querySelector('#details-header-url').innerHTML = job.hostname;
+
+    document.body.classList.add('details');
   }
 
   function showError(err) {

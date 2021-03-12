@@ -129,6 +129,10 @@ body {
   font-weight: lighter;
 }
 
+body.dark {
+  background-color: #131722;
+}
+
 *,
 *::before,
 *::after {
@@ -255,6 +259,23 @@ body {
 
 .hover-light:hover {
   color: #6670e3;
+}
+
+.text-transparent,
+.hover-transparent:hover {
+  color: #0000;
+}
+
+.bg-transparent {
+  background-color: #0000;
+}
+
+.border-transparent {
+  border-color: #0000;
+}
+
+.hover-transparent:hover {
+  color: #0000;
 }
 
 .position-relative {
@@ -654,6 +675,12 @@ main {
   top: -50px;
 }
 
+@media (min-width: 768px) {
+  main {
+    top: -30px;
+  }
+}
+
 input {
   outline: none;
   border: none;
@@ -670,6 +697,10 @@ b {
 
 .pages.details .details-page {
   display: block;
+}
+
+.pages.details .job-list {
+  display: none;
 }
 
 @media (min-width: 576px) {
@@ -744,7 +775,17 @@ b {
   padding-left: 30px;
   padding-right: 30px;
   width: 100%;
-  max-width: 576px;
+  max-width: 720px;
+}
+
+.details-screen > header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 130px;
 }
 
 .screen {
@@ -771,12 +812,6 @@ b {
 @media (min-width: 992px) {
   .screen {
     width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .screen {
-    width: 1140px;
   }
 }
 
@@ -816,13 +851,17 @@ b {
   border-radius: 5px;
 }
 
+.search-form input[type="text"],
+.search-form input[type="search"] {
+  background-color: transparent;
+}
+
 .search-form input[placeholder] {
   text-overflow: ellipsis;
 }
 
 .search-form > * {
   padding: 30px 15px;
-  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -887,6 +926,10 @@ b {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+  }
+  .search-form > * {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
@@ -1010,16 +1053,14 @@ b {
   display: flex;
 }
 
-.job-details {
-  padding-top: 40px;
-}
-
 .job-details ul, .job-details ol {
   padding-left: 15px;
+  margin-bottom: 15px;
 }
 
 .job-details .logo {
   margin-right: 20px;
+  width: 100px;
 }
 
 .job-details .company {
@@ -1048,6 +1089,7 @@ b {
 
 .job-details .apply-btn {
   padding: 10px 15px;
+  white-space: nowrap;
 }
 
 .job-details .how-to-apply {
@@ -1055,6 +1097,26 @@ b {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 30px;
+}
+
+.job-details .how-to-apply a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: block;
+  margin: 7px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.job-details .details-body p, .job-details .details-body h1, .job-details .details-body h2, .job-details .details-body h3, .job-details .details-body h4, .job-details .details-body h5, .job-details .details-body h6 {
+  margin-bottom: 15px;
+}
+
+.job-details .details-body h1, .job-details .details-body h2, .job-details .details-body h3, .job-details .details-body h4, .job-details .details-body h5, .job-details .details-body h6 {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #000;
 }
 
 .job-details .mb-15 {
@@ -1094,12 +1156,33 @@ b {
 }
 
 .details-footer {
-  margin-bottom: 15px;
+  margin-bottom: 70px;
   padding: 15px 0;
 }
 
 .details-footer .btn {
   padding: 10px 15px;
+}
+
+.details-footer .back-btn {
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #c11a37;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .themed .card {
@@ -1110,12 +1193,48 @@ b {
   background-color: #f5f6f8;
 }
 
+.themed .theme-bg-light {
+  background-color: #fff;
+}
+
+.themed .theme-bg-dark {
+  background-color: #f5f6f8;
+}
+
+.themed .theme-text-light {
+  color: #fff;
+}
+
+.themed .theme-text-dark {
+  color: #000;
+}
+
+.themed .job-details h1, .themed .job-details h2, .themed .job-details h3, .themed .job-details h4, .themed .job-details h5, .themed .job-details h6 {
+  color: #fff;
+}
+
 .themed.dark .card {
   background-color: #18202d;
 }
 
 .themed.dark .card.secondary {
   background-color: #131722;
+}
+
+.themed.dark .theme-bg-light {
+  background-color: #18202d;
+}
+
+.themed.dark .theme-bg-dark {
+  background-color: #131722;
+}
+
+.themed.dark .theme-text-light {
+  color: #000;
+}
+
+.themed.dark .theme-text-dark {
+  color: #fff;
 }
 
 .d-none {
