@@ -22,11 +22,11 @@
   right: 0;
   bottom: 0;
   background-color: #fff;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 22px;
@@ -34,8 +34,8 @@
   left: 4px;
   bottom: 4px;
   background-color: #5964e0;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -46,7 +46,7 @@ input:focus + .slider {
   box-shadow: 0 0 1px #18202d;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(30px);
 }
 
@@ -55,6 +55,6 @@ input:checked + .slider:before {
   border-radius: 30px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }
