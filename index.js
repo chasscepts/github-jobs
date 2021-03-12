@@ -11,6 +11,7 @@
     const UNIT = 12;
     const articlesWrap = document.querySelector('#articles-wrap');
     const loadingWrap = document.querySelector('#loading-wrap');
+    const searchForm = document.querySelector('#search-form');
 
     let description = '', fulltime = false, location = '';
 
@@ -68,8 +69,10 @@
 
     const fetchNextPag = () => {
       return new Promise((resolve, reject) => {
-        store = [...store, ...testJobs];
-        resolve();
+        setTimeout(() => {
+          store = [...store, ...testJobs];
+          resolve();
+        }, 2000);
       });
     }
 
@@ -89,6 +92,17 @@
     }
 
     load();
+    searchForm.addEventListener('submit', evt => {
+      evt.preventDefault();
+      description = searchForm.search_company.value;
+      location = searchForm.search_location.value;
+      fulltime = searchForm.search_fulltime.checked;
+      page = 0;
+      store = [];
+      articlesWrap.innerHTML = '';
+      load();
+      return false;
+    });
   }
 
   function createJobListArticles(job) {
@@ -171,7 +185,30 @@
   }
 
   function getElapsedTime(date) {
-    return '2d ago';
+    let elapsed = (Date.now() - Date.parse(date)) / 1000;
+    if(elapsed < 60) {
+      return `${Math.floor(elapsed)}s ago`
+    }
+    elapsed = elapsed / 60;
+    if(elapsed < 60) {
+      return `${Math.floor(elapsed)}m ago`
+    }
+    elapsed = elapsed / 60;
+    if(elapsed < 24) {
+      return `${Math.floor(elapsed)}h ago`
+    }
+    let days = elapsed / 25;
+    if(days < 7) {
+      return `${Math.floor(days)}d ago`
+    }
+    if(days < 28) {
+      return `${Math.floor(days / 7)}w ago`
+    }
+    let months = days / 365;
+    if(months < 12) {
+      return `${Math.floor(months)}mo ago`
+    }
+    return `${Math.floor(months / 12)}y ago`;
   }
 
   window.addEventListener('load', main);

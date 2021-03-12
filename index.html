@@ -29,7 +29,7 @@
     <section class="job-list screen">
       <header class="job-list-header">
         <h2 class="clip">Job Lists</h2>
-        <form class="search-form bg-secondary">
+        <form class="search-form bg-secondary" action="#" method="post" enctype="application/x-www-form-urlencoded" id="search-form">
           <div class="flex-1">
             <label class="has-icon search-field-label">
               <input class="w-100 search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
@@ -58,7 +58,7 @@
       </div>
       <div class="more-jobs-wrap d-flex justify-content-center" id="loading-wrap">
         <div class="d-flex justify-content-center loader-wrap">
-
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div>
         <button class="btn text-white bg-primary" type="button" id="more-jobs">Load More</button>
       </div>
