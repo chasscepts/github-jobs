@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="themed">
+<body class="themed pages">
   <header class="page-header">
     <div class="screen d-flex justify-content-between align-items-center">
       <h1 class="text-white">devjobs</h1>
@@ -25,15 +25,23 @@
   </header>
   <main>
     <section class="job-list screen">
-      <header class="card job-list-header">
+      <header class="job-list-header">
         <h2 class="clip">Job Lists</h2>
-        <form class="search-form">
-          <input class="flex-1 search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
-          <input class="d-none d-md-block" type="text" name="search_location" id="search-location" placeholder="Filter by location...">
+        <form class="search-form bg-secondary">
+          <div class="flex-1">
+            <label class="has-icon search-field-label">
+              <input class="w-100 search-field" type="text" name="search_company" id="search-company" placeholder="Filter by title, companies, expertise">
+            </label>
+          </div>
+          <div class="d-none d-md-flex">
+            <label class="has-icon search-location-label">
+              <input class="w-100" type="text" name="search_location" id="search-location" placeholder="Filter by location">
+            </label>
+          </div>
           <div class="d-flex justify-content-end align-items-center">
             <label class="d-none d-md-block">
               <input type="checkbox" name="search_fulltime" id="search-fulltime">
-              <span>Full Time Only</span>
+              <span class="type-label-text">Full Time Only</span>
             </label>
             <img class="d-md-none" alt="filter" src="assets/images/funnel.png">
             <button class="btn bg-primary text-white search-btn" type="submit" name="search">
@@ -46,7 +54,7 @@
       <div class="articles-wrap">
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -60,7 +68,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -74,7 +82,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -88,7 +96,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -102,7 +110,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -116,7 +124,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -130,7 +138,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -144,7 +152,7 @@
         </article>
         <article class="job-list-card position-relative">
           <img class="company-logo" src="assets/images/sample.png" alt="logo">
-          <div class="card">
+          <div class="card clickable">
             <div class="d-flex flex-column inner">
               <h3 class="text-black order-2">Senior Software Engineer</h3>
               <p class="type order-1">
@@ -231,8 +239,8 @@
           </section>
         </div>
         <section class="text-white bg-primary how-to-apply">
-          <h3>How to Apply</h3>
-          <p>
+          <h3 class="h3 mb-15">How to Apply</h3>
+          <p class="mb-15">
             Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa.
           </p>
           <a class="text-white reduced" href="#">https://examplelink.com/how-to-apply</a>

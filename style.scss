@@ -51,7 +51,7 @@ $break-points: (
   xs: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1024px
+  xl: 1200px
 );
 
 @mixin media-break($break-point: md) {
@@ -104,20 +104,6 @@ body {
 @each $position in $positions {
   .position-#{$position} {
     position: $position;
-  }
-}
-
-@each $display in $displays {
-  .d-#{$display} {
-    display: $display;
-  }
-
-  @each $break, $width in $break-points {
-    @include media-break($break) {
-      .d-#{$break}-#{$display} {
-        display: $display;
-      }
-    }
   }
 }
 
@@ -178,6 +164,18 @@ b {
   font-weight: bold;
 }
 
+.pages {
+  .details-page {
+    display: none;
+  }
+
+  &.details {
+    .details-page {
+      display: block;
+    }
+  }
+}
+
 .d-none {
   &.d-xs-block {
     @include media-break(xs) {
@@ -201,6 +199,10 @@ b {
   &:hover {
     opacity: 0.9;
   }
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .flex-1 {
@@ -300,8 +302,53 @@ b {
 .search-form {
   display: flex;
   justify-content: space-between;
+  border-radius: 5px;
 
-  .search-field {
+  input[placeholder] {
+    text-overflow: ellipsis;
+  }
+
+  & > * {
+    padding: 30px 15px;
+    background-color: $color-white;
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    .has-icon {
+      position: relative;
+      padding-left: 30px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background-size: cover;
+      }
+
+      &.search-field-label::before {
+        background-image: url(assets/images/magnify.png);
+        top: 2px;
+      }
+
+      &.search-location-label::before {
+        background-image: url(assets/images/map-marker.png);
+        top: -2px;
+      }
+    }
+  }
+
+  .search-field-label {
     margin-right: 50px;
 
     @include media-break(md) {
@@ -309,19 +356,26 @@ b {
     }
   }
 
+  .type-label-text {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: $color-black;
+  }
+
   @include media-break(md) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+    gap: 2px;
   }
 }
 
 .card {
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
   padding: 30px;
   
-  .clickable {
+  &.clickable {
+    cursor: pointer;
     transition: 0.3s;
 
     &:hover {
@@ -330,8 +384,23 @@ b {
   }
 }
 
+.articles-wrap {
+  @include media-break(xs) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  @include media-break(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .job-list-header {
   margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+  background-color: $color-secondary;
 }
 
 .job-list-card {
@@ -471,11 +540,33 @@ b {
 .themed {
   .card {
     background-color: $color-white;
+
+    &.secondary {
+      background-color: $color-secondary;
+    }
   }
 
   &.dark {
     .card {
       background-color: $color-dark;
+
+      &.secondary {
+        background-color: $color-darker;
+      }
+    }
+  }
+}
+
+@each $display in $displays {
+  .d-#{$display} {
+    display: $display;
+  }
+
+  @each $break, $width in $break-points {
+    @include media-break($break) {
+      .d-#{$break}-#{$display} {
+        display: $display;
+      }
     }
   }
 }
