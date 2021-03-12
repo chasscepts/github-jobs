@@ -409,7 +409,11 @@ b {
   position: relative;
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+
+    @include media-break(lg) {
+      font-size: 1rem;
+    }
   }
 
   .inner {
@@ -432,6 +436,14 @@ b {
   .location {
     font-weight: bold;
     font-size: 0.95rem;
+
+    @include media-break(lg) {
+      font-size: 0.8rem;
+    }
+  }
+
+  @include media-break(lg) {
+    font-size: 0.8rem;
   }
 }
 
@@ -441,6 +453,20 @@ b {
   .btn {
     padding: 20px 30px;
     font-size: 22px;
+  }
+
+  .loader-wrap {
+    display: none;
+  }
+
+  &.loading {
+    .btn {
+      display: none;
+    }
+
+    .loader-wrap {
+      display: flex;
+    }
   }
 }
 
