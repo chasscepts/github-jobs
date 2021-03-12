@@ -918,6 +918,10 @@ b {
   }
 }
 
+.job-list-card .card.clickable {
+  height: 100%;
+}
+
 @media (min-width: 992px) {
   .job-list-card {
     font-size: 0.8rem;

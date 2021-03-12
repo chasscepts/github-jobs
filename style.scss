@@ -442,6 +442,10 @@ b {
     }
   }
 
+  .card.clickable {
+    height: 100%;
+  }
+
   @include media-break(lg) {
     font-size: 0.8rem;
   }

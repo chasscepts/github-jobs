@@ -7,7 +7,7 @@
     //https://jobs.github.com/positions.json?description=python&full_time=true&location=sf
 
     let store = [], pointer = 0, page = 0;
-    const baseUrl = 'https://jobs.github.com/positions.json';
+    const baseUrl = 'https://arcane-temple-01740.herokuapp.com/https://jobs.github.com/positions.json';
     const UNIT = 12;
     const articlesWrap = document.querySelector('#articles-wrap');
     const loadingWrap = document.querySelector('#loading-wrap');
@@ -21,7 +21,7 @@
       }
 
       loadingWrap.classList.add('loading');
-      fetchNextPage()
+      fetchNextPag()
         .then(res => {
           addArticlesToDom();
           loadingWrap.classList.remove('loading');
@@ -33,7 +33,7 @@
     }
 
     const addArticlesToDom = () => {
-      const max = pointer + UNIT;
+      const max = Math.min(pointer + UNIT, store.length);
       while(pointer < max) {
         articlesWrap.append(createJobListArticles(store[pointer++]));
       }
@@ -42,11 +42,13 @@
     const fetchNextPage = () => {
       return new Promise((resolve, reject) => {
         const url = baseUrl + queryParams();
+        //const url = 'https://github-jobs-proxy.appspot.com/positions?description=javascript&location=san+francisco';
         const xhr = new XMLHttpRequest();
         xhr.open('get', url);
         xhr.onload = () => {
           if(xhr.status === 200) {
             try {
+              console.log(xhr.response);
               const arr = JSON.parse(xhr.response);
               store = [...store, ...arr];
               resolve();
@@ -61,6 +63,13 @@
         }
 
         xhr.send();
+      });
+    }
+
+    const fetchNextPag = () => {
+      return new Promise((resolve, reject) => {
+        store = [...store, ...testJobs];
+        resolve();
       });
     }
 
