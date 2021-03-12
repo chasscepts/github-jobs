@@ -179,8 +179,13 @@
     document.querySelector('#details-body').innerHTML = job.description;
 
     if(!(job.hostname)) {
-      const url = new URL(job.company_url);
-      job.hostname = url.hostname;
+      try {
+        const url = new URL(job.company_url);
+        job.hostname = url.hostname;
+      }
+      catch(err) {
+        job.hostname = 'unknown';
+      }
     }
     document.querySelector('#details-header-url').innerHTML = job.hostname;
 
