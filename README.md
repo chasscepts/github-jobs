@@ -16,7 +16,7 @@ The project makes api calls to [GitHub Job](https://jobs.github.com/api)
 
 ## Live Demo
 
-[Live Demo Link](https://chassecpts.github.io/github-jobs)
+[Live Demo Link](https://chasscepts.github.io/github-jobs)
 
 
 ## Authors
