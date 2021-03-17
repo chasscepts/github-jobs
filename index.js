@@ -1,6 +1,7 @@
 (function iife() {
   function showError(err) {
     console.log(err);
+
   }
 
   function getElapsedTime(date) {
